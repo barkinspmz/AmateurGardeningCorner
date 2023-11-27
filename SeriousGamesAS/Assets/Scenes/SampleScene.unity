@@ -464,7 +464,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1fb5b8faca745f6409fbb154f35a59a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 573049229}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1fb5b8faca745f6409fbb154f35a59a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 573049230}
   m_SourcePrefab: {fileID: 100100000, guid: 1fb5b8faca745f6409fbb154f35a59a0, type: 3}
 --- !u!1001 &126353875
 PrefabInstance:
@@ -3258,6 +3264,44 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 993ba10a2ee7ad547ade7e401c7aa932, type: 3}
+--- !u!1 &573049225 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1fb5b8faca745f6409fbb154f35a59a0, type: 3}
+  m_PrefabInstance: {fileID: 125335856}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &573049229
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573049225}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9000001, y: 0.75398207, z: 0.9045588}
+  m_Center: {x: -0.012704283, y: 0.36816114, z: 0.000000016272669}
+--- !u!114 &573049230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573049225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6f6f2cc1a65e444f8bd1ab62fcc6824, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &589513871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7305,6 +7349,7 @@ GameObject:
   - component: {fileID: 1205299005}
   - component: {fileID: 1205299004}
   - component: {fileID: 1205299007}
+  - component: {fileID: 1205299008}
   m_Layer: 0
   m_Name: FPS_Player
   m_TagString: Untagged
@@ -7388,7 +7433,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactorSource: {fileID: 963194228}
-  interactionRange: 5
+  interactionRange: 3
+--- !u!114 &1205299008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205299003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc36a7d6f0bb82409628dc8c045e3f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerGetSeed: 0
+  isPlayerGetPlanted: 0
 --- !u!1001 &1214732251
 PrefabInstance:
   m_ObjectHideFlags: 0
