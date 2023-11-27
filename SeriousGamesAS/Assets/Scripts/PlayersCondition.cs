@@ -8,7 +8,6 @@ public class PlayersCondition : MonoBehaviour
     public static PlayersCondition Instance;
 
     public bool isPlayerGetSeed = false;
-    public bool isPlayerGetPlanted = false;
 
     void Start()
     {

@@ -4,25 +4,21 @@ using UnityEngine;
 
 public class PlantSeed : MonoBehaviour, IInteractable
 {
-    void Start()
-    {
-        
-    }
-
-    
-    void Update()
-    {
-        
-    }
-
+    private bool isThisPotEmpty = true;
+    [SerializeField] private GameObject growthSystemObj;
     public void Interact()
     {
-        if (PlayersCondition.Instance.isPlayerGetSeed && !PlayersCondition.Instance.isPlayerGetPlanted)
+        if (!isThisPotEmpty)
         {
-            PlayersCondition.Instance.isPlayerGetPlanted = true;
-            GameObject.Find("GrowthSystem").SetActive(true);
+            Debug.Log("This pot is full! Try to plant on other pots.");
         }
-        if (!PlayersCondition.Instance.isPlayerGetSeed)
+        if (PlayersCondition.Instance.isPlayerGetSeed && isThisPotEmpty)
+        {
+            PlayersCondition.Instance.isPlayerGetSeed = false;
+            growthSystemObj.SetActive(true);
+            isThisPotEmpty = false;
+        }
+        if (!PlayersCondition.Instance.isPlayerGetSeed&&isThisPotEmpty)
         {
             Debug.Log("You do not have any seed to plant.");
         }
