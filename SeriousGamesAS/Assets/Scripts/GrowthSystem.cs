@@ -8,8 +8,15 @@ public class GrowthSystem : MonoBehaviour
     public int indexOfVersion;
     public int timer;
     [SerializeField] private Material materialBlack;
+
+    private int[] indexTimeToGrowthEachVersionOfPlant = new int[4];
     void Start()
     {
+        indexTimeToGrowthEachVersionOfPlant[0] = 15;
+        indexTimeToGrowthEachVersionOfPlant[1] = 30;
+        indexTimeToGrowthEachVersionOfPlant[2] = 45;    
+        indexTimeToGrowthEachVersionOfPlant[3] = 60;
+
         StartCoroutine(GrowthSystemTimer());
         indexOfVersion = 0;
         plantVersions[indexOfVersion].SetActive(true);
@@ -26,8 +33,8 @@ public class GrowthSystem : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1f);
-            timer--;
-            if (timer<=0)
+            indexTimeToGrowthEachVersionOfPlant[indexOfVersion]--;
+            if (indexTimeToGrowthEachVersionOfPlant[indexOfVersion]<=0)
             {
                 plantVersions[indexOfVersion].GetComponent<MeshRenderer>().material = materialBlack;
                 Debug.Log("Time is done.");
