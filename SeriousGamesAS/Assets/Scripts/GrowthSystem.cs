@@ -36,7 +36,9 @@ public class GrowthSystem : MonoBehaviour
             if (indexTimeToGrowthEachVersionOfPlant[indexOfVersion]<=0)
             {
                 plantVersions[indexOfVersion].GetComponent<MeshRenderer>().material = materialBlack;
+                indexTimeToGrowthEachVersionOfPlant[indexOfVersion] = 0;
                 Debug.Log("Time is done.");
+                break;
             }
         }
     }

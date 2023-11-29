@@ -12,6 +12,8 @@ public class GetSeed : MonoBehaviour, IInteractable
             PlayersCondition.Instance.isPlayerGetSeed = true;
             StartCoroutine(WritingInfosToCanvas("You get your seed"));
             UIManager.Instance._objectiveText.text = "Planting this seed into the pot on table";
+            UIManager.Instance.seedIcon.enabled = true;
+            UIManager.Instance.seedEffect.enabled = true;
         }
         else
         {

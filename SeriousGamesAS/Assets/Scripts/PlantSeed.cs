@@ -14,8 +14,11 @@ public class PlantSeed : MonoBehaviour, IInteractable
         }
         if (PlayersCondition.Instance.isPlayerGetSeed && isThisPotEmpty)
         {
+            UIManager.Instance._objectiveText.text = "Water your plan with using water can.";
             PlayersCondition.Instance.isPlayerGetSeed = false;
             growthSystemObj.SetActive(true);
+            UIManager.Instance.seedIcon.enabled = false;
+            UIManager.Instance.seedEffect.enabled = false;
             isThisPotEmpty = false;
         }
         if (!PlayersCondition.Instance.isPlayerGetSeed&&isThisPotEmpty)
