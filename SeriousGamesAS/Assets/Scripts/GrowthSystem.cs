@@ -10,8 +10,12 @@ public class GrowthSystem : MonoBehaviour
     [SerializeField] private Material materialBlack;
 
     private int[] indexTimeToGrowthEachVersionOfPlant = new int[4];
+
+    public int wateringRequirementIndexToGrow;
     void Start()
     {
+        wateringRequirementIndexToGrow = 2;
+
         indexTimeToGrowthEachVersionOfPlant[0] = 15;
         indexTimeToGrowthEachVersionOfPlant[1] = 30;
         indexTimeToGrowthEachVersionOfPlant[2] = 45;    
@@ -40,5 +44,27 @@ public class GrowthSystem : MonoBehaviour
                 Debug.Log("Time is done.");
             }
         }
+    }
+
+    public void ChangingWateringAmountAfterGrowth()
+    {
+        switch (indexOfVersion)
+        {
+            case 0:
+                wateringRequirementIndexToGrow = 2;
+                break;
+            case 1:
+                wateringRequirementIndexToGrow = 3;
+                break;
+            case 2:
+                wateringRequirementIndexToGrow = 4;
+                break;
+        }
+    }
+
+    public void ChangeVersionOfPlant()
+    {
+        plantVersions[indexOfVersion-1].SetActive(false);
+        plantVersions[indexOfVersion].SetActive(true);
     }
 }

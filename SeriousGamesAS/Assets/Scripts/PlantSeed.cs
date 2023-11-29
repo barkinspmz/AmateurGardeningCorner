@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlantSeed : MonoBehaviour, IInteractable
 {
-    private bool isThisPotEmpty = true;
+    public bool isThisPotEmpty = true;
     [SerializeField] private GameObject growthSystemObj;
     public void Interact()
     {
