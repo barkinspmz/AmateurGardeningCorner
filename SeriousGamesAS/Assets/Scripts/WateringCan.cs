@@ -15,10 +15,10 @@ public class Watering : MonoBehaviour, IInteractable
         _animator = GetComponent<Animator>();
     }
 
-    
+
     void Update()
     {
-        
+
     }
 
     public void Interact()
@@ -27,9 +27,9 @@ public class Watering : MonoBehaviour, IInteractable
         {
             _animator.SetTrigger(animationName);
             _growthSystemThatRelevant.wateringRequirementIndexToGrow--;
-            if (_growthSystemThatRelevant.wateringRequirementIndexToGrow <=0)
+            if (_growthSystemThatRelevant.wateringRequirementIndexToGrow <= 0)
             {
-                if (_growthSystemThatRelevant.indexOfVersion<4)
+                if (_growthSystemThatRelevant.indexOfVersion < 4)
                 {
                     _growthSystemThatRelevant.indexOfVersion++;
                     _growthSystemThatRelevant.ChangingWateringAmountAfterGrowth();
@@ -40,8 +40,15 @@ public class Watering : MonoBehaviour, IInteractable
         }
         else
         {
-            Debug.Log("There is no any planted seed.");
+            StartCoroutine(WritingInfosToCanvas("There is no any planted seed."));
         }
-        
+
+    }
+    IEnumerator WritingInfosToCanvas(string text)
+    {
+        UIManager.Instance._waterCanText.text = text;
+        yield return new WaitForSeconds(3f);
+        UIManager.Instance._waterCanText.text = "";
     }
 }
+

@@ -10,10 +10,19 @@ public class GetSeed : MonoBehaviour, IInteractable
         if(!PlayersCondition.Instance.isPlayerGetSeed)
         {
             PlayersCondition.Instance.isPlayerGetSeed = true;
+            StartCoroutine(WritingInfosToCanvas("You get your seed"));
+            UIManager.Instance._objectiveText.text = "Planting this seed into the pot on table";
         }
         else
         {
-            Debug.Log("You got your seed already");
+            StartCoroutine(WritingInfosToCanvas("You got your seed already"));
         }
+    }
+
+    IEnumerator WritingInfosToCanvas(string text)
+    {
+        UIManager.Instance._getSeedText.text = text;
+        yield return new WaitForSeconds(3f);
+        UIManager.Instance._getSeedText.text = "";
     }
 }

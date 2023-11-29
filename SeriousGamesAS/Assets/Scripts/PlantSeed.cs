@@ -10,7 +10,7 @@ public class PlantSeed : MonoBehaviour, IInteractable
     {
         if (!isThisPotEmpty)
         {
-            Debug.Log("This pot is full! Try to plant on other pots.");
+            StartCoroutine(WritingInfosToCanvas("This pot is full! Try to plant on other pots."));
         }
         if (PlayersCondition.Instance.isPlayerGetSeed && isThisPotEmpty)
         {
@@ -20,7 +20,14 @@ public class PlantSeed : MonoBehaviour, IInteractable
         }
         if (!PlayersCondition.Instance.isPlayerGetSeed&&isThisPotEmpty)
         {
-            Debug.Log("You do not have any seed to plant.");
+            StartCoroutine(WritingInfosToCanvas("You do not have any seed to plant."));
         }
+    }
+
+    IEnumerator WritingInfosToCanvas(string text)
+    {
+        UIManager.Instance._planterPotText.text = text;
+        yield return new WaitForSeconds(3f);
+        UIManager.Instance._planterPotText.text = "";
     }
 }

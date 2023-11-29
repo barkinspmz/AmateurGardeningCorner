@@ -26,18 +26,13 @@ public class GrowthSystem : MonoBehaviour
         plantVersions[indexOfVersion].SetActive(true);
     }
 
-    
-    void Update()
-    {
-        
-    }
-
     IEnumerator GrowthSystemTimer()
     {
         while (true)
         {
             yield return new WaitForSeconds(1f);
             indexTimeToGrowthEachVersionOfPlant[indexOfVersion]--;
+            UIManager.Instance._timerText.text = indexTimeToGrowthEachVersionOfPlant[indexOfVersion].ToString();
             if (indexTimeToGrowthEachVersionOfPlant[indexOfVersion]<=0)
             {
                 plantVersions[indexOfVersion].GetComponent<MeshRenderer>().material = materialBlack;
