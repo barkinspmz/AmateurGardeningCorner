@@ -29,9 +29,12 @@ public class Watering : MonoBehaviour, IInteractable
             _growthSystemThatRelevant.wateringRequirementIndexToGrow--;
             if (_growthSystemThatRelevant.wateringRequirementIndexToGrow <=0)
             {
-                _growthSystemThatRelevant.indexOfVersion++;
-                _growthSystemThatRelevant.ChangingWateringAmountAfterGrowth();
-                _growthSystemThatRelevant.ChangeVersionOfPlant();
+                if (_growthSystemThatRelevant.indexOfVersion<4)
+                {
+                    _growthSystemThatRelevant.indexOfVersion++;
+                    _growthSystemThatRelevant.ChangingWateringAmountAfterGrowth();
+                    _growthSystemThatRelevant.ChangeVersionOfPlant();
+                }
             }
 
         }
