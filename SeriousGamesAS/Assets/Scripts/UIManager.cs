@@ -13,6 +13,11 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI _planterPotText;
     public TextMeshProUGUI _waterCanText;
     public TextMeshProUGUI _getSeedText;
+
+    public TextMeshProUGUI _waterCanTextSecond;
+    public TextMeshProUGUI _planterPotTextSecond;
+    public TextMeshProUGUI _timerTextSecond;
+
     public RawImage seedIcon;
     public RawImage seedEffect;
     void Start()

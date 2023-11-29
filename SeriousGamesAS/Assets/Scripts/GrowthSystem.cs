@@ -12,6 +12,8 @@ public class GrowthSystem : MonoBehaviour
     private int[] indexTimeToGrowthEachVersionOfPlant = new int[4];
 
     public int wateringRequirementIndexToGrow;
+
+    public bool firstGrowthSystem;
     void Start()
     {
         wateringRequirementIndexToGrow = 2;
@@ -32,7 +34,15 @@ public class GrowthSystem : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
             indexTimeToGrowthEachVersionOfPlant[indexOfVersion]--;
-            UIManager.Instance._timerText.text = indexTimeToGrowthEachVersionOfPlant[indexOfVersion].ToString();
+            if (firstGrowthSystem)
+            {
+                UIManager.Instance._timerText.text = indexTimeToGrowthEachVersionOfPlant[indexOfVersion].ToString();
+            }
+            else
+            {
+                UIManager.Instance._timerTextSecond.text = indexTimeToGrowthEachVersionOfPlant[indexOfVersion].ToString();
+            }
+            
             if (indexTimeToGrowthEachVersionOfPlant[indexOfVersion]<=0)
             {
                 plantVersions[indexOfVersion].GetComponent<MeshRenderer>().material = materialBlack;

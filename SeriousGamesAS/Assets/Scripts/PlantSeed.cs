@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlantSeed : MonoBehaviour, IInteractable
 {
     public bool isThisPotEmpty = true;
+    public bool isFirstPot;
     [SerializeField] private GameObject growthSystemObj;
     public void Interact()
     {
@@ -29,8 +30,17 @@ public class PlantSeed : MonoBehaviour, IInteractable
 
     IEnumerator WritingInfosToCanvas(string text)
     {
-        UIManager.Instance._planterPotText.text = text;
-        yield return new WaitForSeconds(3f);
-        UIManager.Instance._planterPotText.text = "";
+        if (isFirstPot)
+        {
+            UIManager.Instance._planterPotText.text = text;
+            yield return new WaitForSeconds(3f);
+            UIManager.Instance._planterPotText.text = "";
+        }
+        else
+        {
+            UIManager.Instance._planterPotTextSecond.text = text;
+            yield return new WaitForSeconds(3f);
+            UIManager.Instance._planterPotTextSecond.text = "";
+        }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Watering : MonoBehaviour, IInteractable
@@ -11,7 +12,7 @@ public class Watering : MonoBehaviour, IInteractable
     [SerializeField] private PlantSeed seedPlanter;
 
     public ParticleSystem particleWatering;
-
+    public bool isFirstCan;
     void Start()
     {
         _animator = GetComponent<Animator>();
@@ -33,7 +34,7 @@ public class Watering : MonoBehaviour, IInteractable
             _growthSystemThatRelevant.wateringRequirementIndexToGrow--;
             if (_growthSystemThatRelevant.wateringRequirementIndexToGrow <= 0)
             {
-                if (_growthSystemThatRelevant.indexOfVersion < 4)
+                if (_growthSystemThatRelevant.indexOfVersion < 3)
                 {
                     _growthSystemThatRelevant.indexOfVersion++;
                     _growthSystemThatRelevant.ChangingWateringAmountAfterGrowth();
@@ -49,9 +50,19 @@ public class Watering : MonoBehaviour, IInteractable
     }
     IEnumerator WritingInfosToCanvas(string text)
     {
-        UIManager.Instance._waterCanText.text = text;
-        yield return new WaitForSeconds(3f);
-        UIManager.Instance._waterCanText.text = "";
+        if (isFirstCan)
+        {
+            UIManager.Instance._waterCanText.text = text;
+            yield return new WaitForSeconds(3f);
+            UIManager.Instance._waterCanText.text = "";
+        }
+        else
+        {
+            UIManager.Instance._waterCanTextSecond.text = text;
+            yield return new WaitForSeconds(3f);
+            UIManager.Instance._waterCanTextSecond.text = "";
+        }
+       
     }
 
     IEnumerator ClosingObjectivesText()
