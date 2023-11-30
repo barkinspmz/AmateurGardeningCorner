@@ -20,6 +20,9 @@ public class UIManager : MonoBehaviour
 
     public RawImage seedIcon;
     public RawImage seedEffect;
+
+    public Image wateringBar;
+    public Image wateringBarSecond;
     void Start()
     {
         Instance = this;

@@ -35,7 +35,7 @@ public class PlantSeed : MonoBehaviour, IInteractable
             UIManager.Instance._planterPotText.text = text;
             yield return new WaitForSeconds(3f);
             UIManager.Instance._planterPotText.text = "";
-        }
+        }   
         else
         {
             UIManager.Instance._planterPotTextSecond.text = text;
