@@ -18,12 +18,6 @@ public class Watering : MonoBehaviour, IInteractable
         _animator = GetComponent<Animator>();
     }
 
-
-    void Update()
-    {
-
-    }
-
     public void Interact()
     {
         if (!seedPlanter.isThisPotEmpty)

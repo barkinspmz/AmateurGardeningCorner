@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GetSeed : MonoBehaviour, IInteractable
 {
-
     public void Interact()
     {
         if(!PlayersCondition.Instance.isPlayerGetSeed)

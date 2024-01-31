@@ -28,9 +28,4 @@ public class UIManager : MonoBehaviour
         Instance = this;
     }
 
-    
-    void Update()
-    {
-        
-    }
 }
